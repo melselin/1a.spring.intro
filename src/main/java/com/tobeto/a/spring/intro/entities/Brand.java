@@ -9,14 +9,18 @@ import java.util.List;
 public class Brand {
 
     @Id
-    @Column(name = "id")
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "brand")
-    private String brand;
+    @Column(name = "name")
+    private String name;
 
-    @OneToMany(mappedBy = "brand")
-    private List<Product> products;
+    @OneToMany(mappedBy = "brand") //!!DEĞİŞKEN İSMİ!!
+    private List<Car> cars;
+    // One-to-many ilişkilerde list olan değişken @onetomany
+    //direkt class olan değişken @manytoone
+
+
 
 }
