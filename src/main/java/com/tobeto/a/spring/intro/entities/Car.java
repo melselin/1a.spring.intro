@@ -1,35 +1,46 @@
 package com.tobeto.a.spring.intro.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+// Repository, DAO, DAL
+// Data Access Object
+// Data Access Layer
+
 
 
 // ORM => Object Relation Mapping
 @Table(name = "cars")
 @Entity
-public class Car {
+@Getter
+@Setter
+public class Car
+{
     @Id
-    @Column(name="id") // name = kolon adı
+    @Column(name = "id") // name = kolon_adı
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id; // class'ın içindeki alanın adı
+    private int id;
+    // classın içindeki alanın adı
 
     @Column(name="model_year")
     private int modelYear;
 
-    @Column(name = "model_name")
+    @Column(name="model_name")
     private String modelName;
 
-    @Column(name = "daily_price")
+    @Column(name="daily_price")
     private double dailyPrice;
 
-    @Column(name = "color")
+    @Column(name="color")
     private String color;
 
-    @Column(name = "status")
+    @Column(name="status")
     private String status;
 
-    //TODO: İlişkisen Brand tablosunun alanlarını eklemek.
-
-    @ManyToOne
-    @JoinColumn(name = "brand_id")
+    // TODO: İlişkisel Brand tablosunun alanlarını eklemek.
+    @ManyToOne()
+    @JoinColumn(name="brand_id")
     private Brand brand;
 }
+// 11:05
